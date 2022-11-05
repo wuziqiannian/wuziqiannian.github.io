@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/wuziqiannian/img/main/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20221105_183419.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/wuziqiannian/img/main/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20221105_183447.png">
 <meta property="article:published_time" content="2022-11-05T11:56:26.000Z">
-<meta property="article:modified_time" content="2022-11-05T12:46:57.030Z">
+<meta property="article:modified_time" content="2022-11-05T12:48:36.964Z">
 <meta property="article:author" content="梧子千年">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/wuziqiannian/img/main/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20221105_105802.png">
@@ -114,14 +114,14 @@
 <p>打开源代码进行审计：<br><img src="https://raw.githubusercontent.com/wuziqiannian/img/main/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20221105_112056.png" alt="源代码"></p>
 <p>接下来是一些知识点（我自己这么认为的）：<br>1.function定义函数<br>2.var 是变量类型<br>3.spilt 是一种以“，”为标志切割字符串，将其存入字符数组的函数<br>4.prompt 在屏幕上打印，并接受输入<br>5.\x25\x35等是16进制，可按照ASCII码表转换为字符<br>6.fromCharCode 可以接受Unicode值转换为字符<br>7.alert 应该是在屏幕上输出</p>
 <p>代码审计结果：<br><img src="https://raw.githubusercontent.com/wuziqiannian/img/main/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20221105_144519.png" alt="审计结果"></p>
-<p>头脑风暴分析一下：<br>1.dechiffre函数以一串字符pass_enc为参数，返回一个字符串pass。<br>2.pass_enc分割并存入tab中，但在两个for循环中，由tab赋的值都会再被tab2覆盖掉。<br>3.tab2的值来源于pass的分割，但pass是函数中中定义好的。<br>4.因此无论dechiffre函数的参数是什么都返回的是FAUX PASSWOR HAHA。<br>5.调用dechiffre函数的两个位置一是String<a href="dechiffre(~~)">“fromCharCode”</a>,二是alert( dechiffre(h))。<br>6.但一处因为参数不对，未执行，二处根据输入的password返回结果，但总为FAUX PASSWOR HAHA。</p>
-<p>结论：flag应当与为执行的String<a href="dechiffre(~~)">“fromCharCode”</a>有关系<br>简单改写代码：<br><img src="https://raw.githubusercontent.com/wuziqiannian/img/main/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20221105_183419.png" alt="改写代码"><br>(此处可以使用python，c++等改写代码，就是将\x25\x35那一串转化为字符)<br>运行结果：<br><img src="https://raw.githubusercontent.com/wuziqiannian/img/main/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20221105_183447.png" alt="运行结果"></p>
+<p>头脑风暴分析一下：<br>1.dechiffre函数以一串字符pass_enc为参数，返回一个字符串pass。<br>2.pass_enc分割并存入tab中，但在两个for循环中，由tab赋的值都会再被tab2覆盖掉。<br>3.tab2的值来源于pass的分割，但pass是函数中中定义好的。<br>4.因此无论dechiffre函数的参数是什么都返回的是FAUX PASSWOR HAHA。<br>5.调用dechiffre函数的两个位置一是String【”fromCharCode”】(dechiffre(~~)),二是alert( dechiffre(h))。<br>6.但一处因为参数不对，未执行，二处根据输入的password返回结果，但总为FAUX PASSWOR HAHA。</p>
+<p>结论：flag应当与为执行的String【”fromCharCode”】(dechiffre(~~))有关系<br>简单改写代码：<br><img src="https://raw.githubusercontent.com/wuziqiannian/img/main/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20221105_183419.png" alt="改写代码"><br>(此处可以使用python，c++等改写代码，就是将\x25\x35那一串转化为字符)<br>运行结果：<br><img src="https://raw.githubusercontent.com/wuziqiannian/img/main/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20221105_183447.png" alt="运行结果"></p>
 <p>得到flag，按照提示以Cyberpeace{xxxxxx}的格式提交，这道题就完成了。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://wuziqiannian.github.io/2022/11/05/simple-js/" data-id="cla3x77680001w0us32j2h5yp" data-title="simple_js" class="article-share-link">分享</a>
+      <a data-url="https://wuziqiannian.github.io/2022/11/05/simple-js/" data-id="cla3xnp0e0001rsus98ggb67r" data-title="simple_js" class="article-share-link">分享</a>
       
       
       
