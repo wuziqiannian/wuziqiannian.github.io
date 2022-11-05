@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>simple_js | 梧子千年的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="攻防世界 web新手 simple_js(代码审计)题目描述：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="simple_js">
+<meta property="og:url" content="https://wuziqiannian.github.io/2022/11/05/simple-js/index.html">
+<meta property="og:site_name" content="梧子千年的博客">
+<meta property="og:description" content="攻防世界 web新手 simple_js(代码审计)题目描述：">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/wuziqiannian/img/main/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20221105_105802.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wuziqiannian/img/main/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20221105_105753.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wuziqiannian/img/main/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20221105_200655.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wuziqiannian/img/main/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20221105_112056.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wuziqiannian/img/main/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20221105_144519.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wuziqiannian/img/main/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20221105_183419.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/wuziqiannian/img/main/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20221105_183447.png">
+<meta property="article:published_time" content="2022-11-05T11:56:26.000Z">
+<meta property="article:modified_time" content="2022-11-05T12:46:57.030Z">
+<meta property="article:author" content="梧子千年">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/wuziqiannian/img/main/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20221105_105802.png">
+  
+    <link rel="alternate" href="/atom.xml" title="梧子千年的博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">梧子千年的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">大家好</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://wuziqiannian.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-simple-js" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/11/05/simple-js/" class="article-date">
+  <time class="dt-published" datetime="2022-11-05T11:56:26.000Z" itemprop="datePublished">2022-11-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      simple_js
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><strong>攻防世界 web新手 simple_js(代码审计)</strong><br>题目描述：<br><img src="https://raw.githubusercontent.com/wuziqiannian/img/main/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20221105_105802.png" alt="题目"></p>
+<span id="more"></span>
+<p>打开题目环境后，显示输入密码：<br><img src="https://raw.githubusercontent.com/wuziqiannian/img/main/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20221105_105753.png" alt="环境"></p>
+<p>随意输入一个密码，如“password”：<br><img src="https://raw.githubusercontent.com/wuziqiannian/img/main/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20221105_200655.png" alt="试输入"></p>
+<p>打开源代码进行审计：<br><img src="https://raw.githubusercontent.com/wuziqiannian/img/main/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20221105_112056.png" alt="源代码"></p>
+<p>接下来是一些知识点（我自己这么认为的）：<br>1.function定义函数<br>2.var 是变量类型<br>3.spilt 是一种以“，”为标志切割字符串，将其存入字符数组的函数<br>4.prompt 在屏幕上打印，并接受输入<br>5.\x25\x35等是16进制，可按照ASCII码表转换为字符<br>6.fromCharCode 可以接受Unicode值转换为字符<br>7.alert 应该是在屏幕上输出</p>
+<p>代码审计结果：<br><img src="https://raw.githubusercontent.com/wuziqiannian/img/main/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20221105_144519.png" alt="审计结果"></p>
+<p>头脑风暴分析一下：<br>1.dechiffre函数以一串字符pass_enc为参数，返回一个字符串pass。<br>2.pass_enc分割并存入tab中，但在两个for循环中，由tab赋的值都会再被tab2覆盖掉。<br>3.tab2的值来源于pass的分割，但pass是函数中中定义好的。<br>4.因此无论dechiffre函数的参数是什么都返回的是FAUX PASSWOR HAHA。<br>5.调用dechiffre函数的两个位置一是String<a href="dechiffre(~~)">“fromCharCode”</a>,二是alert( dechiffre(h))。<br>6.但一处因为参数不对，未执行，二处根据输入的password返回结果，但总为FAUX PASSWOR HAHA。</p>
+<p>结论：flag应当与为执行的String<a href="dechiffre(~~)">“fromCharCode”</a>有关系<br>简单改写代码：<br><img src="https://raw.githubusercontent.com/wuziqiannian/img/main/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20221105_183419.png" alt="改写代码"><br>(此处可以使用python，c++等改写代码，就是将\x25\x35那一串转化为字符)<br>运行结果：<br><img src="https://raw.githubusercontent.com/wuziqiannian/img/main/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20221105_183447.png" alt="运行结果"></p>
+<p>得到flag，按照提示以Cyberpeace{xxxxxx}的格式提交，这道题就完成了。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wuziqiannian.github.io/2022/11/05/simple-js/" data-id="cla3x77680001w0us32j2h5yp" data-title="simple_js" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2022/11/02/backup/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">backup</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/11/05/simple-js/">simple_js</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/02/backup/">backup</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/01/the-first-blog/">robots</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2022 梧子千年<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

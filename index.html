@@ -45,6 +45,10 @@
         <a href="/" id="logo">梧子千年的博客</a>
       </h1>
       
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">大家好</a>
+        </h2>
+      
     </div>
     <div id="header-inner" class="inner">
       <nav id="main-nav">
@@ -71,6 +75,49 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-simple-js" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/11/05/simple-js/" class="article-date">
+  <time class="dt-published" datetime="2022-11-05T11:56:26.000Z" itemprop="datePublished">2022-11-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2022/11/05/simple-js/">simple_js</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><strong>攻防世界 web新手 simple_js(代码审计)</strong><br>题目描述：<br><img src="https://raw.githubusercontent.com/wuziqiannian/img/main/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20221105_105802.png" alt="题目"></p>
+        
+          <p class="article-more-link">
+            <a href="/2022/11/05/simple-js/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wuziqiannian.github.io/2022/11/05/simple-js/" data-id="cla3x77680001w0us32j2h5yp" data-title="simple_js" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-backup" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/11/02/backup/" class="article-date">
@@ -94,16 +141,15 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
         <p><strong>攻防世界 web新手 backup</strong><br>题目描述：<br><img src="https://raw.githubusercontent.com/wuziqiannian/img/main/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20221101_215752.png" alt="题目"></p>
-<p>进入题目后，看到页面上显示“你知道index.php的备份文件名吗？”<br>搜索得知备用文件常有后缀：“.git” 、“.svn”、“ .swp”、“.bak”、“.bash_history”、“.bkf”<br>尝试在加上后缀访问。<br>1， 尝试  .git 无反应<br><img src="https://raw.githubusercontent.com/wuziqiannian/img/main/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20221102_225029.png" alt=".git"></p>
-<p>2, 尝试   .svn 无反应<br><img src="https://raw.githubusercontent.com/wuziqiannian/img/main/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20221102_225049.png" alt=".svn"></p>
-<p>3,  尝试  .swp 无反应<br><img src="https://raw.githubusercontent.com/wuziqiannian/img/main/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20221102_225104.png" alt=".swp"></p>
-<p>4,  尝试  .bak 弹出index.php.bak文件下载成功<br><img src="https://raw.githubusercontent.com/wuziqiannian/img/main/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20221102_225125.png" alt=".bak"></p>
-<p>使用vscode打开，得到flag。<br><img src="https://raw.githubusercontent.com/wuziqiannian/img/main/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20221102_225158.png" alt="flag"></p>
-
+        
+          <p class="article-more-link">
+            <a href="/2022/11/02/backup/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://wuziqiannian.github.io/2022/11/02/backup/" data-id="cl9zsjhqz00012susby9r9pmx" data-title="backup" class="article-share-link">分享</a>
+      <a data-url="https://wuziqiannian.github.io/2022/11/02/backup/" data-id="cla3x77630000w0us6x4eercx" data-title="backup" class="article-share-link">分享</a>
       
       
       
@@ -138,12 +184,16 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
         <p><strong>攻防世界 web新手 robots</strong></p>
-<p><img src="https://raw.githubusercontent.com/wuziqiannian/img/main/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20221101_215752.png" alt="1"><br>进入环境后发现空白一片，打开源代码，告诉flag is not here<br><img src="https://raw.githubusercontent.com/wuziqiannian/img/main/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20221101_215727.png" alt="2"><br>联想题目robots，搜索后是爬虫协议，存在网站根目录下，进入该文件。<br><img src="https://raw.githubusercontent.com/wuziqiannian/img/main/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20221101_215836.png" alt="3"><br>看到flag_ls_h3re.php，访问该文件，得到flag。<br><img src="https://raw.githubusercontent.com/wuziqiannian/img/main/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20221101_220335.png" alt="4"></p>
-
+<p><img src="https://raw.githubusercontent.com/wuziqiannian/img/main/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20221101_215752.png" alt="1"><br>进入环境后发现空白一片，打开源代码，告诉flag is not here</p>
+        
+          <p class="article-more-link">
+            <a href="/2022/11/01/the-first-blog/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://wuziqiannian.github.io/2022/11/01/the-first-blog/" data-id="cl9zsjhqv00002sus1dl140cv" data-title="robots" class="article-share-link">分享</a>
+      <a data-url="https://wuziqiannian.github.io/2022/11/01/the-first-blog/" data-id="cla3x77680002w0usa7gr0fhd" data-title="robots" class="article-share-link">分享</a>
       
       
       
@@ -184,6 +234,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2022/11/05/simple-js/">simple_js</a>
+          </li>
         
           <li>
             <a href="/2022/11/02/backup/">backup</a>
