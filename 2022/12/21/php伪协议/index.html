@@ -4,13 +4,17 @@
   <meta charset="utf-8">
   
   
-  <title>归档: 2022/12 | 梧子千年的博客</title>
+  <title>php伪协议 | 梧子千年的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="梧子千年的博客">
-<meta property="og:url" content="https://wuziqiannian.github.io/archives/2022/12/index.html">
+  <meta name="description" content="php伪协议：说明：php内预封装的协议，使用可以绕过一些语法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="php伪协议">
+<meta property="og:url" content="https://wuziqiannian.github.io/2022/12/21/php%E4%BC%AA%E5%8D%8F%E8%AE%AE/index.html">
 <meta property="og:site_name" content="梧子千年的博客">
+<meta property="og:description" content="php伪协议：说明：php内预封装的协议，使用可以绕过一些语法。">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-12-21T08:53:33.000Z">
+<meta property="article:modified_time" content="2022-12-21T09:34:27.672Z">
 <meta property="article:author" content="梧子千年">
 <meta name="twitter:card" content="summary">
   
@@ -73,58 +77,57 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/12/21/php%E4%BC%AA%E5%8D%8F%E8%AE%AE/" class="archive-article-date">
-  <time class="dt-published" datetime="2022-12-21T08:53:33.000Z" itemprop="datePublished">12月 21</time>
+        <section id="main"><article id="post-php伪协议" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/12/21/php%E4%BC%AA%E5%8D%8F%E8%AE%AE/" class="article-date">
+  <time class="dt-published" datetime="2022-12-21T08:53:33.000Z" itemprop="datePublished">2022-12-21</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/12/21/php%E4%BC%AA%E5%8D%8F%E8%AE%AE/">php伪协议</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      php伪协议
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/12/11/simple-php/" class="archive-article-date">
-  <time class="dt-published" datetime="2022-12-11T11:08:21.000Z" itemprop="datePublished">12月 11</time>
-</a>
+    <div class="e-content article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/12/11/simple-php/">simple_php</a>
-    </h1>
-  
+        <p>php伪协议：<br>说明：php内预封装的协议，使用可以绕过一些语法。</p>
+<span id="more"></span>
+<p>一、input<br>    1.作用：执行命令<br>    2.使用方式：变量&#x3D;php:&#x2F;&#x2F;input  抓包后，post想运行的语句<br>    3.应用场景：文件包含</p>
+<p>二、file<br>    1.作用：用于访问服务端本地文件<br>    2.使用方式：变量&#x3D;file:&#x2F;&#x2F;文件地址<br>    3.应用场景：文件包含</p>
+<p>三、filter<br>    1.作用：查看源代码，可以寻找flag，或进行绕过<br>    2.使用方式：变量&#x3D;php:&#x2F;&#x2F;filter&#x2F;convert.base64&#x2F;resourse&#x3D;文件名<br>                resource&#x3D;&lt;要过滤的数据流&gt;	这个参数是必须的。它指定了你要筛选过滤的数据流。<br>                read&#x3D;&lt;读链的筛选列表&gt;	该参数可选。可以设定一个或多个过滤器名称，以管道符（|）分隔。<br>                write&#x3D;&lt;写链的筛选列表&gt;	该参数可选。可以设定一个或多个过滤器名称，以管道符（|）分隔。<br>                &lt;；两个链的筛选列表&gt;	任何没有以 read&#x3D; 或 write&#x3D; 作前缀 的筛选器列表会视情况应用于读或写链。<br>    3.应用场景：文件包含</p>
 
-    </header>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wuziqiannian.github.io/2022/12/21/php%E4%BC%AA%E5%8D%8F%E8%AE%AE/" data-id="clbxgl6bk0000v4us37trbdm3" data-title="php伪协议" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2022/12/11/simple-php/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">simple_php</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 
 </section>
