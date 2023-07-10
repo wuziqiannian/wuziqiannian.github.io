@@ -4,21 +4,21 @@
   <meta charset="utf-8">
   
   
-  <title>simple_php | 梧子千年的博客</title>
+  <title>php_rce | 梧子千年的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="攻防世界 web新手 simple_php(代码审计)题目描述：！题目">
+  <meta name="description" content="攻防世界 php_rcehello 大家，好久没写过blog了，也好久没做过题了，假期开始，便回来做题，更新假期ctf学习的第一篇blog这篇">
 <meta property="og:type" content="article">
-<meta property="og:title" content="simple_php">
-<meta property="og:url" content="https://wuziqiannian.github.io/2022/12/11/simple-php/index.html">
+<meta property="og:title" content="php_rce">
+<meta property="og:url" content="https://wuziqiannian.github.io/2023/07/10/php-rce/index.html">
 <meta property="og:site_name" content="梧子千年的博客">
-<meta property="og:description" content="攻防世界 web新手 simple_php(代码审计)题目描述：！题目">
+<meta property="og:description" content="攻防世界 php_rcehello 大家，好久没写过blog了，也好久没做过题了，假期开始，便回来做题，更新假期ctf学习的第一篇blog这篇">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/wuziqiannian/img/main/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20221211_190252.png">
-<meta property="article:published_time" content="2022-12-11T11:08:21.000Z">
-<meta property="article:modified_time" content="2022-12-11T11:32:50.072Z">
+<meta property="og:image" content="https://s2.loli.net/2023/07/10/embwIBGL3x8YHhQ.png">
+<meta property="article:published_time" content="2023-07-10T02:16:09.000Z">
+<meta property="article:modified_time" content="2023-07-10T03:08:42.017Z">
 <meta property="article:author" content="梧子千年">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/wuziqiannian/img/main/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20221211_190252.png">
+<meta name="twitter:image" content="https://s2.loli.net/2023/07/10/embwIBGL3x8YHhQ.png">
   
     <link rel="alternate" href="/atom.xml" title="梧子千年的博客" type="application/atom+xml">
   
@@ -79,10 +79,10 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-simple-php" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-php-rce" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2022/12/11/simple-php/" class="article-date">
-  <time class="dt-published" datetime="2022-12-11T11:08:21.000Z" itemprop="datePublished">2022-12-11</time>
+    <a href="/2023/07/10/php-rce/" class="article-date">
+  <time class="dt-published" datetime="2023-07-10T02:16:09.000Z" itemprop="datePublished">2023-07-10</time>
 </a>
     
   </div>
@@ -93,7 +93,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      simple_php
+      php_rce
     </h1>
   
 
@@ -101,18 +101,12 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p><strong>攻防世界 web新手 simple_php(代码审计)</strong><br>题目描述：<br>！<a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/wuziqiannian/img/main/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20221211_084706.png">题目</a></p>
-<span id="more"></span>
-<p>进行代码审计：<br>1.show_source 为高亮处理<br>2.include(“condig.php”); 包含了一个文件；<br>$a&#x3D;@$_GET【’a’】;$_GET变量用于收集method&#x3D;”get”的表单中的值,从带有GET方法的表单中发送的信息;<br>3.第一个if判断为a&#x3D;&#x3D;0且a为真时输出flag1<br>4.第二个if判断为b为数字或数字字符串时结束。<br>5.第三个if判断为b大于1234时输出flag2</p>
-<p>解题思路：<br>1.flag1与flag2合为flag<br>2.a应当为0且为真。<br>3.b不是数字或数字字符串，且大于1234.</p>
-<p>解题关键：<br>1.php中 “&#x3D;&#x3D;”与”&gt;”均为弱比较，只比较值不比较类型。<br>2.Get方式可通过地址栏提交</p>
-<p><img src="https://raw.githubusercontent.com/wuziqiannian/img/main/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20221211_190252.png" alt="解题"></p>
-<p>此题完成！！！</p>
+        <h1 id="攻防世界-php-rce"><a href="#攻防世界-php-rce" class="headerlink" title="攻防世界 php_rce"></a>攻防世界 php_rce</h1><p>hello 大家，好久没写过blog了，也好久没做过题了，假期开始，便回来做题，更新假期ctf学习的第一篇blog<br>这篇<br><img src="https://s2.loli.net/2023/07/10/embwIBGL3x8YHhQ.png" alt="屏幕截图 2023-07-10 102205.png"></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://wuziqiannian.github.io/2022/12/11/simple-php/" data-id="clbjah47i0002xwus7k8basj4" data-title="simple_php" class="article-share-link">分享</a>
+      <a data-url="https://wuziqiannian.github.io/2023/07/10/php-rce/" data-id="cljwn3cah0002ksus21n6foox" data-title="php_rce" class="article-share-link">分享</a>
       
       
       
@@ -122,19 +116,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2022/12/21/php%E4%BC%AA%E5%8D%8F%E8%AE%AE/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">前一篇</strong>
-      <div class="article-nav-title">
-        
-          php伪协议
-        
-      </div>
-    </a>
   
-  
-    <a href="/2022/11/10/xff-referer/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2023/01/15/easyupload/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">后一篇</strong>
-      <div class="article-nav-title">xff_referer</div>
+      <div class="article-nav-title">easyupload</div>
     </a>
   
 </nav>

