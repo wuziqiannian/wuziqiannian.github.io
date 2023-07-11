@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>command_execution | 梧子千年的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="攻防世界 command_execution这是暑期第二篇blog，刚开始做这道题有点犯傻，以为和ping命令有关，还去学了一下ping相关的知识,也没发现应该怎么办。又仔细审了一下题发现这是建立在题目主机上的ping命令，以及题目名为命令执行，也就是说通过ping来执行系统命令。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="command_execution">
+<meta property="og:url" content="https://wuziqiannian.github.io/2023/07/10/command-execution/index.html">
+<meta property="og:site_name" content="梧子千年的博客">
+<meta property="og:description" content="攻防世界 command_execution这是暑期第二篇blog，刚开始做这道题有点犯傻，以为和ping命令有关，还去学了一下ping相关的知识,也没发现应该怎么办。又仔细审了一下题发现这是建立在题目主机上的ping命令，以及题目名为命令执行，也就是说通过ping来执行系统命令。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2023/07/11/GnI1zRA4hwUtQLF.png">
+<meta property="og:image" content="https://s2.loli.net/2023/07/11/jCSlzP3JyOGKoU2.png">
+<meta property="og:image" content="https://s2.loli.net/2023/07/11/RxgZzGPkwcqyiQT.png">
+<meta property="og:image" content="https://s2.loli.net/2023/07/11/IDAjq1wCnPyYmuH.png">
+<meta property="og:image" content="https://s2.loli.net/2023/07/11/hlmjJ76CYU2WS3H.png">
+<meta property="og:image" content="https://s2.loli.net/2023/07/11/GZQU1DJirCXeVp5.png">
+<meta property="article:published_time" content="2023-07-10T09:23:32.000Z">
+<meta property="article:modified_time" content="2023-07-11T02:42:28.706Z">
+<meta property="article:author" content="梧子千年">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2023/07/11/GnI1zRA4hwUtQLF.png">
+  
+    <link rel="alternate" href="/atom.xml" title="梧子千年的博客" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">梧子千年的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">大家好</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS 订阅"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://wuziqiannian.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-command-execution" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/07/10/command-execution/" class="article-date">
+  <time class="dt-published" datetime="2023-07-10T09:23:32.000Z" itemprop="datePublished">2023-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      command_execution
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="攻防世界-command-execution"><a href="#攻防世界-command-execution" class="headerlink" title="攻防世界 command_execution"></a>攻防世界 command_execution</h1><p>这是暑期第二篇blog，刚开始做这道题有点犯傻，以为和ping命令有关，还去学了一下ping相关的知识,也没发现应该怎么办。又仔细审了一下题发现这是建立在题目主机上的ping命令，以及题目名为命令执行，也就是说通过ping来执行系统命令。<span id="more"></span><br>开始解题 ：<br><img src="https://s2.loli.net/2023/07/11/GnI1zRA4hwUtQLF.png" alt="屏幕截图 2023-03-05 094600.png"></p>
+<p>题目：<br><img src="https://s2.loli.net/2023/07/11/jCSlzP3JyOGKoU2.png" alt="屏幕截图 2023-07-11 095107.png"></p>
+<p>过程：<br>(1) 先ping一下题目本机：<code>127.0.0.1</code><br>result:<br><img src="https://s2.loli.net/2023/07/11/RxgZzGPkwcqyiQT.png" alt="屏幕截图 2023-07-11 101158.png"><br><strong>说明：</strong><br><em>ping本机，ttl&#x3D;64，也就说明题目主机为linux系统，于是可以使用linux系统命令</em></p>
+<p>(2)进行命令截断，执行系统命令<br><strong>截断需要的相关知识:</strong><br><em>命令执行逻辑<br>windows 或 linux 下:<br>command1 &amp;&amp; command2 先执行 command1，如果为真，再执行 command2<br>command1 || command2 先执行 command1，如果为假，再执行 command2<br>command1 &amp; command2 先执行 command2 后执行command1<br>command1 | command2 只执行 command2<br>command1 ; command2 连续执行两个命令</em>  </p>
+<p>1.测试一下<br>payload:<code>127.0.0.1;ls</code><br>result:<br><img src="https://s2.loli.net/2023/07/11/IDAjq1wCnPyYmuH.png" alt="屏幕截图 2023-07-11 102443.png"></p>
+<p>2.看一下根目录<br>payload:<code>127.0.0.1;ls /</code><br>result:<br><img src="https://s2.loli.net/2023/07/11/hlmjJ76CYU2WS3H.png" alt="屏幕截图 2023-07-11 102812.png">  </p>
+<p>3.寻找flag，这一步有两种方法，第一种就是逐个文件夹寻找，第二种方法使用全局查找函数find。<br><strong>find用法</strong><br><code>find / -name &quot;*.txt&quot;</code>  <em>“&#x2F;“ 指从 “&#x2F;“ 开始查找</em><br><code>find / -name &quot;flag.*&quot;</code><br><code>find / -name &quot;flag.txt&quot;</code>  </p>
+<p>payload: <code>127.0.0.1;find / -name &quot;flag.*&quot;</code><br>result:<br><img src="https://s2.loli.net/2023/07/11/GZQU1DJirCXeVp5.png" alt="屏幕截图 2023-07-11 104011.png"></p>
+<p>4.使用cat打开，拿到flag:<em>cyberpeace{9c563be750e17b7d710ab7272896fa7d}</em></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://wuziqiannian.github.io/2023/07/10/command-execution/" data-id="cljxotlvu00052ous5jrd82h6" data-title="command_execution" class="article-share-link">分享</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2023/07/10/php-rce/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">php_rce</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">七月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/01/">一月 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/12/">十二月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">十一月 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/07/10/command-execution/">command_execution</a>
+          </li>
+        
+          <li>
+            <a href="/2023/07/10/php-rce/">php_rce</a>
+          </li>
+        
+          <li>
+            <a href="/2023/01/15/easyupload/">easyupload</a>
+          </li>
+        
+          <li>
+            <a href="/2023/01/08/NewsCenter/">NewsCenter</a>
+          </li>
+        
+          <li>
+            <a href="/2023/01/08/baby-web/">baby_web</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 梧子千年<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
